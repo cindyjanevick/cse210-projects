@@ -1,5 +1,5 @@
 //I added a menu where the user will choose what does he want to do, display the references we have, 
-//add a new reference or randomly use a reference to practice
+//add a new reference , enter a specific reference to practice or randomly use a reference to practice
 
 
 using System;
@@ -21,9 +21,10 @@ class Program
             Console.WriteLine("1. Display the references in the database");
             Console.WriteLine("2. Add a new reference");
             Console.WriteLine("3. Randomly use a reference to practice");
-            Console.WriteLine("4. Quit");
+            Console.WriteLine("4. Enter the reference you want to practice today");
+            Console.WriteLine("5. Quit");
 
-            Console.Write("Enter your choice (1-4): ");
+            Console.Write("Enter your choice (1-5): ");
             string choice = Console.ReadLine();
 
             switch (choice)
@@ -40,7 +41,11 @@ class Program
                     PracticeRandomReference(verses);
                     break;
 
-                case "4":
+                 case "4":
+                    PracticeSpecificReference(verses);
+                    break;
+
+                case "5":
                     Console.WriteLine("Goodbye!");
                     return;
 
@@ -51,7 +56,55 @@ class Program
 
         } while (true);
     }
+static void PracticeSpecificReference(List<Scripture> verses)
+    {
+        Console.Clear();
+        Console.WriteLine("Enter the reference you want to practice (e.g., 'John 3:16' or 'D&C 76:40-41'):");
 
+        string input = Console.ReadLine();
+        Reference selectedReference = FindReference(verses, input);
+
+        if (selectedReference != null)
+        {
+            Scripture selectedVerse = verses.Find(verse => verse.GetReference() == selectedReference);
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine(selectedVerse.GetDisplayText());
+
+                Console.Write("Press Enter to continue or type 'quit' to exit: ");
+                input = Console.ReadLine();
+
+                if (input.ToLower() == "quit")
+                {
+                    return;
+                }
+
+                selectedVerse.HideRandomWords(2);
+
+            } while (!selectedVerse.IsCompletelyHidden());
+        }
+        else
+        {
+            Console.WriteLine("Reference not found in the database.");
+            Console.WriteLine("Press Enter to continue...");
+            Console.ReadLine();
+        }
+    }
+
+    static Reference FindReference(List<Scripture> verses, string input)
+    {
+        foreach (var verse in verses)
+        {
+            Reference reference = verse.GetReference();
+            if (reference.GetDisplayText().Equals(input, StringComparison.OrdinalIgnoreCase))
+            {
+                return reference;
+            }
+        }
+        return null;
+    }
     static List<Scripture> InitializeScriptures()
     {
         List<Scripture> verses = new List<Scripture>();
