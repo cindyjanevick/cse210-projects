@@ -1,3 +1,7 @@
+//I added a menu where the user will choose what does he want to do, display the references we have, 
+//add a new reference or randomly use a reference to practice
+
+
 using System;
 using System.Collections.Generic;
 
