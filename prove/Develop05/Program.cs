@@ -42,13 +42,6 @@ class Program
                     break;
 
                 case 6:
-                    Console.Write("Do you want to quit without saving goals? (y/n)? ");
-                    string userInput = Console.ReadLine();
-                    if (userInput == "n")
-                    {
-                        goalmanager.SaveGoals();
-                    }
-
                     Console.WriteLine();
                     Console.WriteLine("Goodbye. Hope to see you again.");
                     break;
