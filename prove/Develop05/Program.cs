@@ -1,4 +1,4 @@
-// I added animation of CONGRATULATIONS when you get a complete your goals in the ChecklistGoal//
+// I added animation of CONGRATULATIONS when you complete your goals in the ChecklistGoal//
 
 using System;
 
