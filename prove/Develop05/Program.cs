@@ -1,4 +1,5 @@
 // I added animation of CONGRATULATIONS when you complete your goals in the ChecklistGoal//
+// If you already completed a goal and you try to record it again, you will receive a message saying that you already did it.
 
 using System;
 

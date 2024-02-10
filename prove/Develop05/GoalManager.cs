@@ -136,7 +136,7 @@ class GoalManager
         }
         else
         {
-            Console.WriteLine("You have already completed that goal!");
+            Console.WriteLine("You have already completed that goal! Create a New Goal!");
             Console.WriteLine();
         }
     }
