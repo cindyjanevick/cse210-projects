@@ -1,12 +1,10 @@
-// Program.cs
-
 using System;
 
 class Program
 {
     static void Main()
     {
-        // Inside the Main method
+       
         Library library = new Library();
         library.LoadLibraryInventoryFromCSV("library_inventory.csv");
 
