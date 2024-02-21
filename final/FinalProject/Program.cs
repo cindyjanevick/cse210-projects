@@ -12,6 +12,7 @@ class Program
         int choice;
         do
         {
+            Console.WriteLine();
             Console.WriteLine("What do you want to do today?");
             Console.WriteLine("1. Display Library Inventory");
             Console.WriteLine("2. Search a book");
@@ -29,6 +30,7 @@ class Program
                         break;
                     case 2:
                         // Search a book
+                        Console.WriteLine();
                         Console.WriteLine("Choose a search option:");
                         Console.WriteLine("1. Display items by genre");
                         Console.WriteLine("2. Display items by name");
